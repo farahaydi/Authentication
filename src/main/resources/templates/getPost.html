@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Management</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    
+</head>
+<body>
+<nav class="navbar">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li id="logoutLink" style="display: none;"><a href="/logoutWithSecret">Log Out</a></li>
+    </ul>
+<h1>Create a Post</h1>
+<form action="/add-post" method="post">
+    <label for="textContent">Text Content:</label>
+    <input type="text" id="textContent" name="textContent"><br><br>
+    <label for="userId">User ID:</label>
+    <input type="text" id="userId" name="userId"><br><br>
+    <input type="submit" value="Create Post">
+</form>
+
+<h1>Posts</h1>
+<ul>
+    <th:block th:each="post : ${posts}">
+        <li>
+            <p th:text="${post.textContent}"></p>
+        </li>
+    </th:block>
+</ul>
+</body>
+</html>
