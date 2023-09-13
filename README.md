@@ -8,5 +8,7 @@ in logout I'm just ending the session
 the postController same as previous lab
 This controller manages the routes for the home page and a page with secret content.
 
+
+
 The getHomePage method returns the HTML page for the home page ("/").
 The getHomePageWithSecret method retrieves the username from the user's session, adds it to the model, and returns a page that displays posts. This page is considered to have "secret" content accessible only to logged-in users.
