@@ -1,71 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
-    color: #000000;
-}
-
-h1 {
-    color: #6a5acd; /* Light Purple */
-}
-
-label {
-    display: block;
-    margin: 5px 0;
-}
-
-input[type="text"],
-input[type="password"] {
-    padding: 5px;
-    margin: 5px 0;
-}
-
-input[type="submit"] {
-    padding: 10px 20px;
-    background-color: #6a5acd; /* Light Purple */
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #483d8b; /* Darker Purple */
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin: 10px 0;
+    background-color: #f9f9f9;
 }
 
 .navbar {
-    background-color: #000000;
-    overflow: hidden;
-}
+    background-color: #a995bf;
+    padding: 20px 30px;
 
-.navbar a {
-    float: left;
-    display: block;
-    color: #ffffff;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.navbar a:hover {
-    background-color: #6a5acd; /* Light Purple */
-    color: #ffffff;
-}
-
-.navbar-right {
-    float: right;
-}
-/* Navigation Bar Styling */
-.navbar {
-    background-color: #6a5acd; /* Light Purple */
-    overflow: hidden;
 }
 
 .navbar ul {
@@ -76,15 +17,86 @@ li {
 
 .navbar li {
     display: inline;
-    margin-right: 20px;
+    margin: 0 20px;
 }
 
 .navbar a {
+    color: white;
     text-decoration: none;
-    color: #ffffff;
+    border: none !important;
+}
+
+fieldset {
+    border: none;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+fieldset label {
+    display: block;
+    margin-bottom: 8px;
     font-weight: bold;
 }
 
-.navbar a:hover {
-    color: #000000; /* Black */
+fieldset input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
+
+fieldset input[type="submit"] {
+    background-color: #a995bf;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* My Application Page */
+.content {
+    text-align: center;
+}
+
+/* Login Page */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: none;
+}
+
+form label, form input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form input[type="submit"] {
+    background-color: #a995bf;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
