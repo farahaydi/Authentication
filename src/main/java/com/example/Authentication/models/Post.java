@@ -13,9 +13,8 @@ public class Post {
 
     public Post() {
     }
-    public Post( String textContent, SiteUser userId) {
+    public Post( String textContent) {
         this.textContent = textContent;
-        this.userId = userId;
     }
 
     public Long getId() {
@@ -27,6 +26,10 @@ public class Post {
 
     public void setTextContent(String textContent) {
         this.textContent = textContent;
+    }
+
+    public void setUserId(SiteUser userId) {
+        this.userId = userId;
     }
 
     public SiteUser getUserId() {

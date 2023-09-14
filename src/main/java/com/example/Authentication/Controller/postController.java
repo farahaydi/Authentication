@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 @Controller
 public class postController {
@@ -19,12 +21,13 @@ public class postController {
     @Autowired
     SiteUserRepository siteUserRepository;
     @PostMapping("/add-post")
-    public RedirectView addPost(String textContent, Long userId) {
-        SiteUser siteUser = siteUserRepository.findById(userId)
-                .orElseThrow(() -> new userNotFound("SiteUser not found with ID: " + userId));
-        Post post = new Post(textContent, siteUser);
+    public RedirectView addPost(HttpServletRequest request, String textContent, Long userId) {
+        HttpSession session = request.getSession();
+        String username= session.getAttribute("username").toString();
+        SiteUser siteUser = siteUserRepository.findByUsername(username);
+        Post post = new Post(textContent);
+        post.setUserId(siteUser);
         postRepository.save(post);
-
         return new RedirectView("/get-post");
     }
     @GetMapping("/get-post")
@@ -33,4 +36,30 @@ public class postController {
         model.addAttribute("posts", posts);
         return "getPost";
     }
+
+    @GetMapping("/")
+    public String getHomePage() {
+        return "index.html";
+    }
+
+//    @GetMapping("/withSecret")
+//    public String getHomePageWithSecret(HttpServletRequest request, Model m){
+//        HttpSession session = request.getSession();
+//        String username= session.getAttribute("username").toString();
+//        m.addAttribute("username", username);
+//
+//        return "getPost";
+//    }
+
+    @GetMapping("/withSecret")
+    public String getHomePageWithSecret(HttpServletRequest request, Model m){
+        HttpSession session = request.getSession();
+        String username= session.getAttribute("username").toString();
+        m.addAttribute("username", username);
+        List<Post> posts = postRepository.findAll();
+        m.addAttribute("posts", posts);
+
+        return "getPost";
+    }
+
 }
